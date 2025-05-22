@@ -6,6 +6,7 @@
 #include <QPainter>
 #include <QPen>
 #include <QColor>
+#include <vector>
 
 class WaveformWidget : public QWidget
 {
@@ -15,13 +16,13 @@ public:
     explicit WaveformWidget(QWidget *parent = nullptr);
     
 public slots:
-    void updateWaveform(const QVector<float> &waveform);
+    void updateWaveform(const QVector<float> &data);
     
 protected:
     void paintEvent(QPaintEvent *event) override;
     
 private:
-    QVector<float> m_waveform;
+    QVector<float> m_waveform_data;
     QPen m_pen;
     QColor m_backgroundColor;
 };
